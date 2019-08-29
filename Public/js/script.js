@@ -10,19 +10,19 @@ new Lightpick({
     field: document.getElementById('startdate'),
     secondField: document.getElementById('enddate'),
     onSelect: function(start, end){
-        var timesheetTable = document.getElementById('timesheetTable') 
-        // axios.post('http://jsonplaceholder.typicode.com/todos', {
-        //     userId: '1',
-        //     title: 'SOME TITLE',
-        //     completed: false
-        // })
-        // axios.get('https://still-chamber-18482.herokuapp.com/')
-        // .then(function (response) {
-        //     timesheetTable.innerHTML = '<h3>Employee Timesheet</h3>';
-        //     timesheetTable.innerHTML += 'Insert timesheet table here';
-        // })
-        // .catch(function (error) {
-        //     timesheetTable.innerHTML = '<font color="#DC322F"><b>Request error, please contact administrator.</b></font>';
-        // });
+        var timesheetView = document.getElementById('timesheetTable') 
+        var startDate = start.format('YYYY-MM-DD')
+        var endDate = end.format('YYYY-MM-DD')
+        axios.post('/view', {
+            startDate: startDate,
+            endDate: endDate
+        })
+        .then(function (response) {
+            timesheetView.innerHTML = '<h3>Employee Timesheet</h3>';
+            timesheetView.innerHTML += response.data;
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
     }
 });

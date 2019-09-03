@@ -13,16 +13,20 @@ new Lightpick({
         var timesheetView = document.getElementById('timesheetTable') 
         var startDate = start.format('YYYY-MM-DD')
         var endDate = end.format('YYYY-MM-DD')
-        axios.post('/view', {
-            startDate: startDate,
-            endDate: endDate
-        })
-        .then(function (response) {
-            timesheetView.innerHTML = '<h3>Employee Timesheet</h3>';
-            timesheetView.innerHTML += response.data;
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
+        
+        // Only when both startDate and endDate selected, send POST request
+        if (endDate) {
+            axios.post('/view', {
+                startDate: startDate,
+                endDate: endDate
+            })
+            .then(function (response) {
+                timesheetView.innerHTML = '<h3>Employee Timesheet</h3>';
+                timesheetView.innerHTML += response.data;
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        }
     }
 });

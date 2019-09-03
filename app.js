@@ -71,7 +71,10 @@ var getTimesheetView = function(sql, cback){
 };
 
 app.post('/view', function(req, res) {
-	getTimesheetView(sql="SELECT * from timesheet.timesheet",
+	var startDate = req.body.startDate
+	var endDate = req.body.endDate
+	var query = "SELECT * from timesheet.timesheet where _date >= '"+startDate+"' and _date <= '"+endDate+ "';"
+	getTimesheetView(sql=query,
 	resql=>{
 	    res.writeHead(200, {'Content-Type':'text/html; charset=utf-8'});
 	    res.write(resql, 'utf-8');

@@ -51,7 +51,7 @@ var getTimesheetView = function(sql, cback){
 };
 
 app.post('/view', function(req, res) {
-	getTimesheetView(sql="SELECT * from timesheet.tap_time",
+	getTimesheetView(sql="SELECT * from timesheet.timesheet",
 	resql=>{
 	    res.writeHead(200, {'Content-Type':'text/html; charset=utf-8'});
 	    res.write(resql, 'utf-8');

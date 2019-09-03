@@ -39,9 +39,29 @@ var getTimesheetView = function(sql, cback){
 
 	      //create html table with data from res.
 	      for(var i=0; i<res.length; i++){
-	          table +='<tr><td>'+ res[i].tap_id +'</td><td>'+ res[i].employee_id +'</td><td>'+ res[i].tap_time +'</td></tr>';
+	          table +='<tr><td>'
+			        + res[i]._date 
+			        +'</td><td>'
+			        + res[i].employee_id 
+			        +'</td><td>'
+			        + res[i].time_in_0 
+			        +'</td><td>'
+			        + res[i].time_out_0 
+			        +'</td><td>'
+			        + res[i].time_in_1 
+			        +'</td><td>'
+			        + res[i].time_out_1 
+			        +'</td><td>'
+			        + res[i].hours_worked 
+			        +'</td><td>'
+			        + res[i].regular_hours 
+			        +'</td><td>'
+			        + res[i].overtime_hours 
+			        +'</td><td>'
+			        + res[i].employee_type 
+			        +'</td></tr>';
 	      }
-	      table ='<table border="1"><tr><th>Tap id</th><th>Employee id</th><th>Tap time</th></tr>'+ table +'</table>';
+	      table ='<table border="1"><tr><th>Date</th><th>Employee id</th><th>Time in</th><th>Time out</th><th>Time in</th><th>Time out</th><th>Hours worked</th><th>Regular hours</th><th>Overtime hours</th><th>Employee type</th></tr>'+ table +'</table>';
 
 	      con.release(); //Done with mysql connection
 

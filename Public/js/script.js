@@ -16,6 +16,7 @@ new Lightpick({
         
         // Only when both startDate and endDate selected, send POST request
         if (endDate) {
+            timesheetView.innerHTML = '<div class="loader" id="loader"></div>';
             axios.post('/view', {
                 startDate: startDate,
                 endDate: endDate

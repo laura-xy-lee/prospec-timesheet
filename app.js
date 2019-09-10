@@ -57,11 +57,9 @@ var getTimesheetView = function(sql, cback){
 			        + res[i].regular_hours 
 			        +'</td><td>'
 			        + res[i].overtime_hours 
-			        +'</td><td>'
-			        + res[i].employee_type 
 			        +'</td></tr>';
 	      }
-	      table ='<table border="1"><tr><th>Date</th><th>Employee id</th><th>Time in</th><th>Time out</th><th>Time in</th><th>Time out</th><th>Hours worked</th><th>Regular hours</th><th>Overtime hours</th><th>Employee type</th></tr>'+ table +'</table>';
+	      table ='<table border="1"><tr><th>Date</th><th>Employee id</th><th>Time in</th><th>Time out</th><th>Time in</th><th>Time out</th><th>Hours worked</th><th>Regular hours</th><th>Overtime hours</th></tr>'+ table +'</table>';
 
 	      con.release(); //Done with mysql connection
 

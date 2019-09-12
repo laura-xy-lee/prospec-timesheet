@@ -59,7 +59,7 @@ var getTimesheetView = function(sql, cback){
 			        + parseFloat(Math.round(res[i].overtime_hours * 100) / 100).toFixed(2)
 			        +'</td></tr>';
 	      }
-	      table ='<table border="1"><tr><th>Date</th><th>Employee id</th><th>Time in (AM)</th><th>Time out (Lunch)</th><th>Time in (Lunch)</th><th>Time out (PM)</th><th>Hours worked</th><th>Regular hours</th><th>Overtime hours</th></tr>'+ table +'</table>';
+	      table ='<table border="1"><tr><th>Date</th><th>Employee</th><th>Time in (AM)</th><th>Time out (Lunch)</th><th>Time in (Lunch)</th><th>Time out (PM)</th><th>Hours worked</th><th>Regular hours</th><th>Overtime hours</th></tr>'+ table +'</table>';
 
 	      con.release(); //Done with mysql connection
 
@@ -71,7 +71,7 @@ var getTimesheetView = function(sql, cback){
 app.post('/view', function(req, res) {
 	var startDate = req.body.startDate
 	var endDate = req.body.endDate
-	var query = "SELECT * from timesheet.timesheet where _date >= '"+startDate+"' and _date <= '"+endDate+ "';"
+	var query = "SELECT * from timesheet.timesheet where _date >= '"+startDate+"' and _date <= '"+endDate+ "' ORDER BY _date, employee_id;"
 	getTimesheetView(sql=query,
 	resql=>{
 	    res.writeHead(200, {'Content-Type':'text/html; charset=utf-8'});

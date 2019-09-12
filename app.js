@@ -44,13 +44,13 @@ var getTimesheetView = function(sql, cback){
 			        +'</td><td>'
 			        + res[i].employee_id 
 			        +'</td><td>'
-			        + res[i].time_in_0 
+			        + (res[i].time_in_0 == null ? '-' : res[i].time_in_0)
 			        +'</td><td>'
-			        + res[i].time_out_0 
+			        + (res[i].time_out_0 == null ? '-' : res[i].time_out_0) 
 			        +'</td><td>'
-			        + res[i].time_in_1 
+			        + (res[i].time_in_1 == null ? '-' : res[i].time_in_1) 
 			        +'</td><td>'
-			        + res[i].time_out_1 
+			        + (res[i].time_out_1 == null ? '-' : res[i].time_out_1) 
 			        +'</td><td>'
 			        + parseFloat(Math.round(res[i].hours_worked * 100) / 100).toFixed(2)
 			        +'</td><td>'

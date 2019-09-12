@@ -52,11 +52,11 @@ var getTimesheetView = function(sql, cback){
 			        +'</td><td>'
 			        + res[i].time_out_1 
 			        +'</td><td>'
-			        + res[i].hours_worked 
+			        + parseFloat(Math.round(res[i].hours_worked * 100) / 100).toFixed(2)
 			        +'</td><td>'
-			        + res[i].regular_hours 
+			        + parseFloat(Math.round(res[i].regular_hours * 100) / 100).toFixed(2)
 			        +'</td><td>'
-			        + res[i].overtime_hours 
+			        + parseFloat(Math.round(res[i].overtime_hours * 100) / 100).toFixed(2)
 			        +'</td></tr>';
 	      }
 	      table ='<table border="1"><tr><th>Date</th><th>Employee id</th><th>Time in (AM)</th><th>Time out (Lunch)</th><th>Time in (Lunch)</th><th>Time out (PM)</th><th>Hours worked</th><th>Regular hours</th><th>Overtime hours</th></tr>'+ table +'</table>';

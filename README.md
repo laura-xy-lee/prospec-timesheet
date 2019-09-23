@@ -1,5 +1,7 @@
 # Timesheet
 
+(Born out of #techforall 2019)
+
 This project is hosted at https://prospec-timesheet.herokuapp.com/
 
 Everytime an employee flashes his QR code to our scanner, a record of his employee id and scan timing is sent to our database (AWS MySQL). This web interface allows an employer to view the scan in and scan out timings for each worker on each day, and their corresponding hours worked.
